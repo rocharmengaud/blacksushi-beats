@@ -3,12 +3,11 @@ import { useState } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import BeatTable from '../components/BeatTable';
 import useCart from '../hooks/useCart';
+import { useSidebar } from '../hooks/useSidebar';
 
 export default function Beats() {
   // const [cart, setCart] = useState([]);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
-  const state = useCart();
+  // const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // const addToCart = (beat) => {
   //   setCart([...cart, beat]);
@@ -22,12 +21,20 @@ export default function Beats() {
 
   // const isInCart = (beat) => Boolean(cart.find((item) => item.title === beat.title));
 
-  const getButtonLabel = (beat) => {
-    return state.isInCart(beat) ? 'Remove from cart' : 'Add to cart';
-  };
+  const state = useCart();
+  const sidebar = useSidebar();
 
   const handleSidebarClose = () => {
-    setSidebarOpen(false);
+    // setSidebarOpen(false);
+    sidebar.onClose();
+  };
+
+  const handleSidebarOpen = () => {
+    sidebar.onOpen();
+  };
+
+  const getButtonLabel = (beat) => {
+    return state.isInCart(beat) ? 'Remove from cart' : 'Add to cart';
   };
 
   const tracks = [
@@ -55,10 +62,12 @@ export default function Beats() {
 
   return (
     <>
-      <div className="p-4 text-white">
-        <h1 className="mb-4 text-3xl">Beats</h1>
-        <div>
-          <h2 className="mb-2 text-xl">Track List</h2>
+      <div className="flex flex-col gap-4 p-4 text-white">
+        <div className="flex flex-col gap-4">
+          <h1 className="text-3xl">Beats</h1>
+          <h2 className="text-xl">Track List</h2>
+        </div>
+        <div className="flex flex-col gap-4">
           <BeatTable
             beats={tracks}
             selectTrack={selectTrack}
@@ -69,11 +78,15 @@ export default function Beats() {
             isInCart={state.isInCart}
             getButtonLabel={getButtonLabel}
             handleSidebarClose={handleSidebarClose}
-            sidebarOpen={sidebarOpen}
+            sidebarOpen={sidebar.isOpen}
           />
           <ReactAudioPlayer src={currentTrack.src} autoPlay={false} controls className="w-full" />
-          <p className="text-gray-500">Currently playing: {currentTrack.title}</p>
+          <p className="text-center text-gray-500">Currently playing: {currentTrack.title}</p>
         </div>
+        {/* MX-AUTO SO THE BUTTON DOESN'T USE FULL CONTAINER WIDTH */}
+        <button onClick={handleSidebarOpen} className="px-6 py-2 mx-auto text-white bg-yellow-300 rounded cursor-pointer">
+          Check what is in your shopping cart
+        </button>
       </div>
     </>
   );

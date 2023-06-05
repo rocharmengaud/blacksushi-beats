@@ -10,10 +10,7 @@ const BeatRow = ({ beat, selectTrack, currentTrack, addToCart, removeFromCart, i
       <TableCell>{beat.genre}</TableCell>
       <TableCell>${beat.price}</TableCell>
       <TableCell>
-        <button
-          onClick={() => selectTrack(beat)}
-          className={`hover:text-red-700 focus:outline-none ${beat === currentTrack ? 'text-red-500 underline' : ''}`}
-        >
+        <button onClick={() => selectTrack(beat)} className="hover:text-red-700 focus:outline-none">
           Select
         </button>
       </TableCell>

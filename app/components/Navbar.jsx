@@ -14,6 +14,9 @@ export default function Navbar() {
         <Link href="/about">
           <button className="px-6 py-2 text-white bg-yellow-500 rounded cursor-pointer">About</button>
         </Link>
+        <Link href="/cart">
+          <button className="px-6 py-2 text-white bg-yellow-300 rounded cursor-pointer">My cart</button>
+        </Link>
       </div>
     </div>
   );
