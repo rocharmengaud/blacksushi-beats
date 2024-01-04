@@ -2,7 +2,7 @@
 
 export default function Song({ currentSong }) {
   return (
-    <div className="flex flex-col items-center justify-center pt-10">
+    <div className="flex flex-col items-center justify-center gap-8 pt-10">
       <img
         src={currentSong.cover}
         alt={currentSong.name}
@@ -11,8 +11,10 @@ export default function Song({ currentSong }) {
         }}
         className="w-[80%] sm:w-[35%] rounded-3xl shadow-[0_20px_100px_-20px] shadow-white"
       />
-      <h2 className="px-1 pt-10 pb-3 text-xl">{currentSong.name}</h2>
-      <h3 className="text-sm">{currentSong.artist}</h3>
+      <div className="flex flex-col items-center justify-center gap-2">
+        <h2 className="dark:text-blue-500 text-xl font-bold text-blue-600">{currentSong.name}</h2>
+        <h3 className="text-sm">{currentSong.artist}</h3>
+      </div>
     </div>
   );
 }

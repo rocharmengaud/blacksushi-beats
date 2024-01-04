@@ -20,7 +20,7 @@ export default function Player({ currentSong, isPlaying, setIsPlaying, audioRef,
       }
     });
     setSongs(newSongs);
-    console.log('testing');
+    console.log(newSongs);
   };
 
   //Event Handlers
@@ -88,7 +88,7 @@ export default function Player({ currentSong, isPlaying, setIsPlaying, audioRef,
         </div>
         <p className="p-4 text-sm">{songInfo.duration ? getTime(songInfo.duration) : '00:00'}</p>
       </div>
-      <div className="flex justify-between items-center p-4 w-[30%]">
+      <div className="flex justify-between items-center p-4 sm:w-[30%] w-[50%]">
         <FontAwesomeIcon onClick={() => skipTrackHandler('skip-back')} size="2x" className="skip-back" icon={faAngleLeft} />
         {!isPlaying ? (
           <FontAwesomeIcon onClick={playSongHandler} size="2x" className="play" icon={faPlay} />

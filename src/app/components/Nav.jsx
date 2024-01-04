@@ -9,7 +9,7 @@ export default function Nav({ libraryStatus, setLibraryStatus }) {
 
   return (
     <nav className="flex items-center justify-around">
-      <h1 className="text-4xl font-extrabold leading-none tracking-tight text-white">
+      <h1 className="sm:text-4xl text-3xl font-extrabold leading-none tracking-tight text-white">
         Blacksushi <br></br>
         <span className="dark:text-blue-500 text-blue-600">Beats</span>
       </h1>

@@ -5,6 +5,7 @@ import Nav from '../app/components/Nav.jsx';
 import { useRef, useState } from 'react';
 import Song from './components/Song';
 import Player from './components/Player';
+import Library from './components/Library';
 
 export default function Home() {
   const [songs, setSongs] = useState(Data());
@@ -59,6 +60,15 @@ export default function Home() {
         currentSong={currentSong}
         setCurrentSong={setCurrentSong}
         setSongs={setSongs}
+      />
+      <Library
+        libraryStatus={libraryStatus}
+        setLibraryStatus={setLibraryStatus}
+        setSongs={setSongs}
+        isPlaying={isPlaying}
+        audioRef={audioRef}
+        songs={songs}
+        setCurrentSong={setCurrentSong}
       />
       <audio
         onLoadedMetadata={timeUpdateHandler}
