@@ -11,13 +11,13 @@ export default function Nav({ libraryStatus, setLibraryStatus }) {
     <nav className="flex items-center justify-around">
       <h1 className="sm:text-4xl text-3xl font-extrabold leading-none tracking-tight text-white">
         Blacksushi <br></br>
-        <span className="dark:text-blue-500 text-blue-600">Beats</span>
+        <span className="text-blue-600">Beats</span>
       </h1>
       <button
         onClick={() => {
           setLibraryStatus(!libraryStatus);
         }}
-        className="bg-transparent cursor-pointer border-white border-2 p-[0.8rem] transition-all duration-300 ease-in hover:bg-white hover:text-slate-400"
+        className="bg-transparent cursor-pointer border-white border-2 p-[0.8rem] transition-all duration-300 ease-in hover:bg-white hover:text-slate-400 z-10"
       >
         Library <FontAwesomeIcon icon={faMusic} />
       </button>
