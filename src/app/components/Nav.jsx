@@ -17,7 +17,7 @@ export default function Nav({ libraryStatus, setLibraryStatus }) {
         onClick={() => {
           setLibraryStatus(!libraryStatus);
         }}
-        className="bg-transparent cursor-pointer border-white border-2 p-[0.8rem] transition-all duration-300 ease-in hover:bg-white hover:text-slate-400 z-10"
+        className="bg-transparent cursor-pointer border-white border-2 p-[0.8rem] transition-all duration-300 ease-in hover:bg-white hover:text-slate-400"
       >
         Library <FontAwesomeIcon icon={faMusic} />
       </button>

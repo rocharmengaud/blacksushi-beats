@@ -22,7 +22,7 @@ export default function LibrarySong({ song, songs, setCurrentSong, audioRef, isP
     if (isPlaying) audioRef.current.play();
   };
   return (
-    <div onClick={songSelectHandler} className={`flex items-center py-1 px-2 hover:bg-gray-300 ${song.active ? 'bg-gray-400' : ''}`}>
+    <div onClick={songSelectHandler} className={`flex items-center py-1 px-2 hover:bg-gray-300 cursor-pointer ${song.active ? 'bg-gray-400' : ''}`}>
       <img src={song.cover} alt={song.name} className="w-[30%]"></img>
       <div className="pl-1">
         <h3 className="text-lg font-bold text-blue-500">{song.name}</h3>

@@ -69,7 +69,7 @@ export default function Player({ currentSong, isPlaying, setIsPlaying, audioRef,
   return (
     <div className="min-h-[20vh] flex flex-col items-center">
       <div className="sm:w-[50%] w-[100%] flex items-center">
-        <p className="p-4 text-sm">{getTime(songInfo.currentTime)}</p>
+        <p className="p-4 text-sm font-bold">{getTime(songInfo.currentTime)}</p>
         <div
           style={{
             background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`,
@@ -82,21 +82,21 @@ export default function Player({ currentSong, isPlaying, setIsPlaying, audioRef,
             value={songInfo.currentTime}
             onChange={dragHandler}
             type="range"
-            className="focus:outline-none w-full h-full"
+            className="w-full bg-transparent appearance-none cursor-pointer"
           />
-          <div style={trackAnim}></div>
+          <div style={trackAnim} className="bg-[#cccccc] w-full h-full absolute top-0 left-0 translate-x-[0%] pointer-events-none"></div>
         </div>
-        <p className="p-4 text-sm">{songInfo.duration ? getTime(songInfo.duration) : '00:00'}</p>
+        <p className="p-4 text-sm font-bold">{songInfo.duration ? getTime(songInfo.duration) : '00:00'}</p>
       </div>
       <div className="flex justify-between items-center p-4 sm:w-[30%] w-[50%]">
-        <FontAwesomeIcon onClick={() => skipTrackHandler('skip-back')} size="2x" className="skip-back" icon={faAngleLeft} />
+        <FontAwesomeIcon onClick={() => skipTrackHandler('skip-back')} size="2x" className="cursor-pointer" icon={faAngleLeft} />
         {!isPlaying ? (
-          <FontAwesomeIcon onClick={playSongHandler} size="2x" className="play" icon={faPlay} />
+          <FontAwesomeIcon onClick={playSongHandler} size="2x" className="cursor-pointer" icon={faPlay} />
         ) : (
-          <FontAwesomeIcon onClick={playSongHandler} size="2x" className="pause" icon={faPause} />
+          <FontAwesomeIcon onClick={playSongHandler} size="2x" className="cursor-pointer" icon={faPause} />
         )}
 
-        <FontAwesomeIcon onClick={() => skipTrackHandler('skip-forward')} size="2x" className="skip-forward" icon={faAngleRight} />
+        <FontAwesomeIcon onClick={() => skipTrackHandler('skip-forward')} size="2x" className="cursor-pointer" icon={faAngleRight} />
       </div>
     </div>
   );
