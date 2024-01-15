@@ -74,7 +74,7 @@ export default function Player({ currentSong, isPlaying, setIsPlaying, audioRef,
           style={{
             background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`,
           }}
-          className="bg-blue-300 w-full h-4 relative rounded-[1rem] overflow-hidden"
+          className="bg-blue-300 w-full h-4 relative rounded-[1rem] overflow-hidden flex"
         >
           <input
             min={0}

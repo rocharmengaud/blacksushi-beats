@@ -11,7 +11,7 @@ export default function Library({ songs, setCurrentSong, audioRef, isPlaying, se
   return (
     // sliding library
     <div
-      className={`fixed top-0 left-0 sm:w-[20rem] w-[100%] h-full overflow-scroll translate-x-[-100%] transition-all duration-500 bg-orange-200 opacity-0 ${
+      className={`fixed top-0 left-0 sm:w-[20rem] w-[80%] h-full overflow-scroll translate-x-[-100%] transition-all duration-500 bg-orange-200 opacity-0 ${
         libraryStatus ? 'translate-x-[0%] opacity-100' : ''
       }`}
     >

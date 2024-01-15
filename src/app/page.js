@@ -47,20 +47,29 @@ export default function Home() {
 
   return (
     <>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
-      <Song currentSong={currentSong} />
-      <Player
-        id={songs.id}
-        songs={songs}
-        songInfo={songInfo}
-        setSongInfo={setSongInfo}
-        audioRef={audioRef}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        currentSong={currentSong}
-        setCurrentSong={setCurrentSong}
-        setSongs={setSongs}
-      />
+      <div className={`opacity-100 ${libraryStatus ? 'opacity-50 transition-all duration-500' : ''}`}>
+        <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+        <Song currentSong={currentSong} />
+        <Player
+          id={songs.id}
+          songs={songs}
+          songInfo={songInfo}
+          setSongInfo={setSongInfo}
+          audioRef={audioRef}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          currentSong={currentSong}
+          setCurrentSong={setCurrentSong}
+          setSongs={setSongs}
+        />
+        <audio
+          onLoadedMetadata={timeUpdateHandler}
+          onTimeUpdate={timeUpdateHandler}
+          src={currentSong.audio}
+          ref={audioRef}
+          onEnded={songEndHandler}
+        ></audio>
+      </div>
       <Library
         libraryStatus={libraryStatus}
         setLibraryStatus={setLibraryStatus}
@@ -70,13 +79,6 @@ export default function Home() {
         songs={songs}
         setCurrentSong={setCurrentSong}
       />
-      <audio
-        onLoadedMetadata={timeUpdateHandler}
-        onTimeUpdate={timeUpdateHandler}
-        src={currentSong.audio}
-        ref={audioRef}
-        onEnded={songEndHandler}
-      ></audio>
     </>
   );
 }
